@@ -1,4 +1,4 @@
-const { colors } = require("../config/colors");
+import { colors } from "../config/colors";
 
 export const generateBgColor = (type) => {
   const colorName = type + "Opacity";
