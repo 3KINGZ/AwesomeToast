@@ -1,13 +1,20 @@
 import React from "react";
 import { View, Modal, StyleSheet } from "react-native";
+import GestureRecognizer from "react-native-swipe-gestures";
 
 //This is a prompt it works like a modal
 
 const Prompt = ({ visible, children, onClose }) => {
+  const closeModal = () => {
+    onClose();
+  };
+
   return (
-    <Modal animationType="slide" visible={visible} onRequestClose={onClose}>
-      <View style={styles.container}>{children}</View>
-    </Modal>
+    <GestureRecognizer onSwipeDown={closeModal}>
+      <Modal animationType="slide" visible={visible} onRequestClose={onClose}>
+        <View style={styles.container}>{children}</View>
+      </Modal>
+    </GestureRecognizer>
   );
 };
 
